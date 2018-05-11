@@ -2,8 +2,10 @@ import json
 import csv
 from random import randint
 from review import Review
-from bottle import route, run, template, static_file, request, response
+from bottle import route, run, template, static_file, request, response, debug
 
+
+debug(True)
 
 ##### User Message Processing #########################################################################################
 
@@ -150,7 +152,10 @@ def images(filename):
 
 
 if __name__ == "__main__":
-    run(host='localhost', port=7000)
-
-
-
+    import os
+    from sys import argv
+    DEBUG = os.environ.get("DEBUG")
+    if DEBUG:
+        run(host='localhost', port=7000)
+    else:
+        run(host='0.0.0.0', port=argv[1])
