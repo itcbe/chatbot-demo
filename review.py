@@ -9,6 +9,7 @@ import pickle
 nltk_download('punkt')
 nltk_download('averaged_perceptron_tagger')
 nltk_download('wordnet')
+nltk_download('stopwords')
 
 TOP_WORDS = pickle.load(open("top_words.p", "rb"), encoding='latin1')
 SENTIMENT_MODEL = pickle.load(open("sentiment_model.p", "rb"), encoding='latin1')
