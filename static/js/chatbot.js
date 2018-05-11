@@ -129,7 +129,7 @@ ChatBot.setAnimation = function(animation){
 	//Each animation plays for 4.5 seconds
 	ChatBot.animationTimeout = setTimeout(function(){
 		$("#emoji").attr("src","./static/images/boto/" + ChatBot.DEFAULT_ANIMATION+".gif")
-	},4500);
+	},8000);
 };
 
 
