@@ -2,7 +2,7 @@ var ChatBot = {};
 
 //The server path will be used when sending the chat message to the server.
 //replace with your server path if needed
-ChatBot.SERVER_PATH = "http://localhost:7000";
+ChatBot.SERVER_PATH = window.location.href;
 ChatBot.DEFAULT_ANIMATION = "inlove";
 //The animation timeout is used to cut the current running animations when a new animations starts
 ChatBot.animationTimeout;
@@ -93,7 +93,7 @@ ChatBot.sendMessage = function(){
 			sendBtn.addClass("loading");
 			ChatBot.write(chatInput.val(),"me");
 			//Sending the user line to the server using the POST method
-			$.post(ChatBot.SERVER_PATH + "/chat",{"msg":chatInput.val()},function(result){
+			$.post(ChatBot.SERVER_PATH + "chat",{"msg":chatInput.val()},function(result){
 				if (typeof result != "undefined" && "msg" in result){
 					ChatBot.setAnimation(result.animation);
 					ChatBot.write(result.msg,"Cafebot");
